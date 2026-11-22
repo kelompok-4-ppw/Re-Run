@@ -1,0 +1,4 @@
+backend/.env
+backend/.env.bak
+backend/vendor/
+backend/storage/*.key
