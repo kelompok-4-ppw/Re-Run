@@ -6,6 +6,12 @@ use App\Models\Product;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
+/**
+ * Reference Controller (Fase 0) — Acuan standar penulisan bagi seluruh anggota tim:
+ * 1. Validasi langsung di awal method via $request->validate([...])
+ * 2. Query / logika Eloquent yang lurus & bebas N+1 query (with([...]))
+ * 3. Return JSON seragam menggunakan trait ApiResponse (apiResponse, paginatedResponse, errorResponse)
+ */
 class ProductController extends Controller
 {
     // GET /api/products
@@ -21,12 +27,12 @@ class ProductController extends Controller
 
         $query = Product::with(['category', 'primaryImage', 'variants'])
             ->when($validated['search'] ?? null, function ($q, $search) {
-                $q->where('name', 'like', "%{search}%");
+                $q->where('name', 'like', "%{$search}%");
             })
             ->when($validated['category'] ?? null, function ($q, $categorySlug) {
                 $q->whereHas('category', fn ($cat) => $cat->where('slug', $categorySlug));
             })
-            ->when(isset($validated['available']) && $validated['available'], function ($q) {
+            ->when(! empty($validated['available']), function ($q) {
                 $q->whereHas('variants', fn ($var) => $var->where('stock', '>', 0));
             });
 
@@ -46,15 +52,15 @@ class ProductController extends Controller
     {
         $product = Product::with(['category', 'images', 'variants'])
             ->where('slug', $slug)
-            -first();
+            ->first();
 
-        if (!$product) {
+        if (! $product) {
             return $this->errorResponse('Produk tidak ditemukan', 404);
         }
 
         $relatedProducts = Product::with(['primaryImage', 'variants'])
             ->where('category_id', $product->category_id)
-            -where('id', '!=', $product->id)
+            ->where('id', '!=', $product->id)
             ->latest()
             ->limit(4)
             ->get();

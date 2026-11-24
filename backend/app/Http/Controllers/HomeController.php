@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class HomeController extends Controller
 {
-    public function Index()
+    // GET /api/home
+    public function index(): JsonResponse
     {
         return $this->apiResponse(['service' => 'Re-Run API'], 'API Active');
     }

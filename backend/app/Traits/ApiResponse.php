@@ -17,12 +17,12 @@ trait ApiResponse
         array $meta = []
     ): JsonResponse {
         $payload = [
-            'status'  => $statusCode >= 200 && $statusCode < 300,
+            'status' => $statusCode >= 200 && $statusCode < 300,
             'message' => $message,
-            'data'    => $data,
+            'data' => $data,
         ];
 
-        if (!empty($meta)) {
+        if (! empty($meta)) {
             $payload['meta'] = $meta;
         }
 
@@ -38,16 +38,16 @@ trait ApiResponse
         int $statusCode = 200
     ): JsonResponse {
         return response()->json([
-            'status'  => true,
+            'status' => true,
             'message' => $message,
-            'data'    => $paginator->items(),
-            'meta'    => [
+            'data' => $paginator->items(),
+            'meta' => [
                 'current_page' => $paginator->currentPage(),
-                'last_page'    => $paginator->lastPage(),
-                'per_page'     => $paginator->perPage(),
-                'total'        => $paginator->total(),
-                'from'         => $paginator->firstItem(),
-                'to'           => $paginator->lastItem(),
+                'last_page' => $paginator->lastPage(),
+                'per_page' => $paginator->perPage(),
+                'total' => $paginator->total(),
+                'from' => $paginator->firstItem(),
+                'to' => $paginator->lastItem(),
             ],
         ], $statusCode);
     }
@@ -61,12 +61,12 @@ trait ApiResponse
         mixed $errors = null
     ): JsonResponse {
         $payload = [
-            'status'  => false,
+            'status' => false,
             'message' => $message,
-            'data'    => null,
+            'data' => null,
         ];
 
-        if (!is_null($errors)) {
+        if (! is_null($errors)) {
             $payload['errors'] = $errors;
         }
 

@@ -10,19 +10,19 @@ class EnsureUserHasRole
 {
     public function handle(Request $request, Closure $next, string $role): Response
     {
-        if (!$request->user()) {
+        if (! $request->user()) {
             return response()->json([
-                'status'  => false,
+                'status' => false,
                 'message' => 'Unauthenticated. Silakan login terlebih dahulu.',
-                'data'    => null,
+                'data' => null,
             ], 401);
         }
 
         if ($request->user()->role !== $role) {
             return response()->json([
-                'status'  => false,
-                'message' => 'Forbidden. Akses khusus ' . $role . '.',
-                'data'    => null,
+                'status' => false,
+                'message' => 'Forbidden. Akses khusus '.$role.'.',
+                'data' => null,
             ], 403);
         }
 

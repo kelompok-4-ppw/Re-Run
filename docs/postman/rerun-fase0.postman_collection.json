@@ -175,6 +175,10 @@
     {
       "key": "token",
       "value": "PASTE_SANCTUM_TOKEN_DISINI"
+    },
+    {
+      "key": "midtrans_server_key",
+      "value": "PASTE_MIDTRANS_SERVER_KEY_SANDBOX_DISINI"
     }
   ]
 }
