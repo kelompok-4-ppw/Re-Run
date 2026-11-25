@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import '../../styles/admin-login.css';
 
@@ -11,13 +11,11 @@ export default function AdminLogin() {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-  const [infoMsg, setInfoMsg] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
-    setInfoMsg('');
     setLoading(true);
 
     try {
@@ -99,21 +97,6 @@ export default function AdminLogin() {
             </div>
           )}
 
-          {infoMsg && (
-            <div
-              style={{
-                backgroundColor: 'var(--color-muted-blue)',
-                color: 'var(--color-primary-navy)',
-                padding: '12px 14px',
-                borderRadius: '8px',
-                fontSize: '13px',
-                marginBottom: '20px',
-              }}
-            >
-              {infoMsg}
-            </div>
-          )}
-
           <form onSubmit={handleSubmit} noValidate>
             <div className="admin-field">
               <label htmlFor="admin-email">Email</label>
@@ -153,13 +136,11 @@ export default function AdminLogin() {
                   onClick={() => setShowPassword((prev) => !prev)}
                 >
                   {showPassword ? (
-                    /* Ikon mata terbuka: password terlihat */
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                       <circle cx="12" cy="12" r="3" />
                     </svg>
                   ) : (
-                    /* Ikon mata tertutup: password tersembunyi */
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8">
                       <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
                       <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
@@ -180,15 +161,9 @@ export default function AdminLogin() {
                 <span>Show password</span>
               </label>
 
-              <button
-                type="button"
-                className="admin-forgot-link"
-                onClick={() =>
-                  setInfoMsg('Silakan hubungi Store Owner untuk mengatur ulang kredensial akun Admin Anda.')
-                }
-              >
+              <Link to="/admin/forgot-password" className="admin-forgot-link">
                 Forgot password?
-              </button>
+              </Link>
             </div>
 
             <button type="submit" className="admin-submit-btn" disabled={loading}>

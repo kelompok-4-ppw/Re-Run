@@ -44,6 +44,18 @@
     pointer-events: none;
 }
 
+.admin-shirt-top-right {
+    position: absolute;
+    top: -18px;
+    right: 18px;
+}
+
+.admin-shirt-bottom-left {
+    position: absolute;
+    bottom: 22px;
+    left: 6px;
+}
+
 .admin-login-brand-copy {
     position: relative;
     z-index: 2;
@@ -66,7 +78,7 @@
     letter-spacing: 0.01em;
 }
 
-/* Panel Kanan: Form Login */
+/* Panel Kanan: Form */
 .admin-login-right {
     display: flex;
     align-items: center;
@@ -80,9 +92,43 @@
     max-width: 400px;
 }
 
+.admin-back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    margin-bottom: 22px;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-royal-blue);
+    text-decoration: none;
+    transition: opacity 0.15s ease;
+}
+
+.admin-back-link:hover {
+    text-decoration: underline;
+    opacity: 0.85;
+}
+
+.admin-icon-badge {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--color-muted-blue);
+    color: var(--color-primary-navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
 .admin-login-header {
     margin-top: 28px;
     margin-bottom: 24px;
+}
+
+.admin-login-header.compact-top {
+    margin-top: 0;
 }
 
 .admin-login-header h1 {
@@ -91,15 +137,16 @@
     font-weight: 700;
     line-height: 1.2;
     color: var(--color-dark-navy);
-    margin-bottom: 6px;
+    margin-bottom: 8px;
 }
 
 .admin-login-header p {
     font-size: 14px;
+    line-height: 1.55;
     color: var(--color-text-secondary);
 }
 
-/* Banner Pesan Error */
+/* Alert Banners */
 .admin-login-alert {
     display: flex;
     align-items: center;
@@ -110,6 +157,20 @@
     border-radius: 8px;
     font-size: 13px;
     font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.admin-login-success {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background-color: var(--color-success-tint);
+    color: var(--color-success);
+    padding: 12px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.45;
     margin-bottom: 20px;
 }
 
@@ -205,9 +266,7 @@
 .admin-forgot-link {
     color: var(--color-royal-blue);
     font-weight: 500;
-    background: none;
-    border: none;
-    cursor: pointer;
+    text-decoration: none;
     font-size: 13px;
 }
 
