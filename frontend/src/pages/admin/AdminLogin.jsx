@@ -1,13 +1,17 @@
 import { useState } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate, Link, useLocation } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import '../../styles/admin-login.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+const DEMO_ADMIN_EMAILS = ['admin@rerun.id', 'bramkyru@gmail.com'];
 
 export default function AdminLogin() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('admin@rerun.id');
+  const location = useLocation();
+  const resetSuccessMsg = location.state?.resetSuccess || '';
+
+  const [email, setEmail] = useState('bramkyru@gmail.com');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
@@ -18,11 +22,13 @@ export default function AdminLogin() {
     setErrorMsg('');
     setLoading(true);
 
+    const trimmedEmail = email.trim().toLowerCase();
+
     try {
       const res = await fetch(`${API_BASE_URL}/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: trimmedEmail, password }),
       });
 
       if (res.ok) {
@@ -40,7 +46,10 @@ export default function AdminLogin() {
 
       throw new Error('Fallback to local validation');
     } catch {
-      if (email.trim() === 'admin@rerun.id' && password === 'admin123') {
+      const savedCustomPass = localStorage.getItem('rerun_admin_custom_password');
+      const isValidPass = password === 'admin123' || (savedCustomPass && password === savedCustomPass);
+
+      if (DEMO_ADMIN_EMAILS.includes(trimmedEmail) && isValidPass) {
         localStorage.setItem('rerun_admin_token', 'mock-admin-token');
         navigate('/admin');
       } else {
@@ -53,7 +62,6 @@ export default function AdminLogin() {
 
   return (
     <div className="admin-login-page">
-      {/* Panel Kiri: Brand Showcase */}
       <div className="admin-login-left">
         <div style={{ position: 'relative', zIndex: 2 }}>
           <Logo variant="light" />
@@ -76,7 +84,6 @@ export default function AdminLogin() {
         </div>
       </div>
 
-      {/* Panel Kanan: Form Login */}
       <div className="admin-login-right">
         <div className="admin-login-card">
           <Logo variant="dark" />
@@ -85,6 +92,12 @@ export default function AdminLogin() {
             <h1>Welcome Back.</h1>
             <p>Sign in to manage your Re-Run store.</p>
           </div>
+
+          {resetSuccessMsg && !errorMsg && (
+            <div className="admin-login-success" role="status">
+              <span>{resetSuccessMsg}</span>
+            </div>
+          )}
 
           {errorMsg && (
             <div className="admin-login-alert" role="alert">
@@ -105,7 +118,7 @@ export default function AdminLogin() {
                   id="admin-email"
                   type="email"
                   className="admin-input"
-                  placeholder="admin@rerun.id"
+                  placeholder="bramkyru@gmail.com"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   required

@@ -4,6 +4,7 @@ import Logo from '../../components/Logo';
 import '../../styles/admin-login.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
+const DEMO_ADMIN_EMAILS = ['admin@rerun.id', 'bramkyru@gmail.com'];
 
 function TshirtOutline({ size = 240, className = '' }) {
   return (
@@ -27,7 +28,7 @@ function TshirtOutline({ size = 240, className = '' }) {
 
 export default function ForgotPassword() {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('admin@rerun.id');
+  const [email, setEmail] = useState('bramkyru@gmail.com');
   const [errorMsg, setErrorMsg] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -35,7 +36,7 @@ export default function ForgotPassword() {
     e.preventDefault();
     setErrorMsg('');
 
-    const trimmedEmail = email.trim();
+    const trimmedEmail = email.trim().toLowerCase();
     if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
       setErrorMsg('Please enter a valid admin email address.');
       return;
@@ -61,10 +62,10 @@ export default function ForgotPassword() {
 
       throw new Error('Fallback to local simulation');
     } catch {
-      if (trimmedEmail === 'admin@rerun.id') {
+      if (DEMO_ADMIN_EMAILS.includes(trimmedEmail)) {
         navigate('/admin/check-email', { state: { email: trimmedEmail } });
       } else {
-        setErrorMsg('Admin email address was not found. Use admin@rerun.id for demo.');
+        setErrorMsg('Admin email address was not found.');
       }
     } finally {
       setLoading(false);
@@ -73,13 +74,11 @@ export default function ForgotPassword() {
 
   return (
     <div className="admin-login-page">
-      {/* Panel Kiri: Brand Showcase */}
       <div className="admin-login-left">
         <div style={{ position: 'relative', zIndex: 2 }}>
           <Logo variant="light" />
         </div>
 
-        {/* Ilustrasi Lingkaran & Tiga Siluet Kaos */}
         <div className="admin-login-illustration" aria-hidden="true">
           <TshirtOutline size={104} className="admin-shirt-top-right" />
           <TshirtOutline size={236} />
@@ -92,7 +91,6 @@ export default function ForgotPassword() {
         </div>
       </div>
 
-      {/* Panel Kanan: Form Forgot Password */}
       <div className="admin-login-right">
         <div className="admin-login-card">
           <Logo variant="dark" />
@@ -112,7 +110,6 @@ export default function ForgotPassword() {
             </Link>
           </div>
 
-          {/* Ikon Kunci Melingkar */}
           <div className="admin-icon-badge" aria-hidden="true">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9">
               <circle cx="7.5" cy="15.5" r="4" />
@@ -146,7 +143,7 @@ export default function ForgotPassword() {
                   id="forgot-admin-email"
                   type="email"
                   className={`admin-input ${errorMsg ? 'has-error' : ''}`}
-                  placeholder="admin@rerun.id"
+                  placeholder="bramkyru@gmail.com"
                   value={email}
                   onChange={(e) => {
                     setEmail(e.target.value);
