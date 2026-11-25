@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import '../../styles/admin-login.css';
 
@@ -26,15 +26,14 @@ function TshirtOutline({ size = 240, className = '' }) {
 }
 
 export default function ForgotPassword() {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('admin@rerun.id');
   const [errorMsg, setErrorMsg] = useState('');
-  const [successMsg, setSuccessMsg] = useState('');
   const [loading, setLoading] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setErrorMsg('');
-    setSuccessMsg('');
 
     const trimmedEmail = email.trim();
     if (!trimmedEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(trimmedEmail)) {
@@ -51,7 +50,7 @@ export default function ForgotPassword() {
       });
 
       if (res.ok) {
-        setSuccessMsg(`Reset link has been sent to ${trimmedEmail}. Please check your inbox.`);
+        navigate('/admin/check-email', { state: { email: trimmedEmail } });
         return;
       }
 
@@ -62,9 +61,8 @@ export default function ForgotPassword() {
 
       throw new Error('Fallback to local simulation');
     } catch {
-      // Simulasi saat REST API backend belum aktif
       if (trimmedEmail === 'admin@rerun.id') {
-        setSuccessMsg(`Reset link has been sent to ${trimmedEmail}. Please check your inbox.`);
+        navigate('/admin/check-email', { state: { email: trimmedEmail } });
       } else {
         setErrorMsg('Admin email address was not found. Use admin@rerun.id for demo.');
       }
@@ -140,22 +138,6 @@ export default function ForgotPassword() {
             </div>
           )}
 
-          {successMsg && (
-            <div className="admin-login-success" role="status">
-              <svg width="18" height="18" viewBox="0 0 20 20" fill="none" style={{ flexShrink: 0, marginTop: '1px' }}>
-                <circle cx="10" cy="10" r="8.25" stroke="#15803D" strokeWidth="1.5" />
-                <path
-                  d="M6.5 10.2L8.9 12.6L13.8 7.6"
-                  stroke="#15803D"
-                  strokeWidth="1.6"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span>{successMsg}</span>
-            </div>
-          )}
-
           <form onSubmit={handleSubmit} noValidate>
             <div className="admin-field" style={{ marginBottom: '22px' }}>
               <label htmlFor="forgot-admin-email">Admin Email</label>
@@ -169,7 +151,6 @@ export default function ForgotPassword() {
                   onChange={(e) => {
                     setEmail(e.target.value);
                     if (errorMsg) setErrorMsg('');
-                    if (successMsg) setSuccessMsg('');
                   }}
                   required
                 />
