@@ -3,6 +3,7 @@ import AdminLogin from './pages/admin/AdminLogin';
 import ForgotPassword from './pages/admin/ForgotPassword';
 import CheckEmail from './pages/admin/CheckEmail';
 import ResetPassword from './pages/admin/ResetPassword';
+import PasswordUpdated from './pages/admin/PasswordUpdated';
 
 function AdminDashboardPlaceholder() {
   return (
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/admin/forgot-password" element={<ForgotPassword />} />
         <Route path="/admin/check-email" element={<CheckEmail />} />
         <Route path="/admin/reset-password" element={<ResetPassword />} />
+        <Route path="/admin/password-updated" element={<PasswordUpdated />} />
         <Route path="/admin" element={<AdminDashboardPlaceholder />} />
         <Route path="*" element={<Navigate to="/admin/login" replace />} />
       </Routes>
