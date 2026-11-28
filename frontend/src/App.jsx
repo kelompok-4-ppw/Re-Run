@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import LandingGuest from './pages/customer/LandingGuest';
 import AdminLogin from './pages/admin/AdminLogin';
 import ForgotPassword from './pages/admin/ForgotPassword';
 import CheckEmail from './pages/admin/CheckEmail';
@@ -13,10 +14,26 @@ import Orders from './pages/admin/Orders';
 import OrderDetail from './pages/admin/OrderDetail';
 import Inventory from './pages/admin/Inventory';
 
+function CustomerAuthPlaceholder({ title }) {
+  return (
+    <div style={{ padding: '48px 24px', textAlign: 'center', fontFamily: 'var(--font-body)' }}>
+      <h2 style={{ color: 'var(--color-primary-navy)', marginBottom: '8px' }}>{title}</h2>
+      <p style={{ color: 'var(--color-text-secondary)', fontSize: '14px' }}>
+        Halaman {title} siap dibuat pada tahap berikutnya.
+      </p>
+    </div>
+  );
+}
+
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Halaman Customer (Guest & Storefront) */}
+        <Route path="/" element={<LandingGuest />} />
+        <Route path="/login" element={<CustomerAuthPlaceholder title="Customer Login" />} />
+        <Route path="/register" element={<CustomerAuthPlaceholder title="Customer Register" />} />
+
         {/* Halaman Autentikasi Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />
         <Route path="/admin/forgot-password" element={<ForgotPassword />} />
@@ -35,7 +52,7 @@ export default function App() {
           <Route path="inventory" element={<Inventory />} />
         </Route>
 
-        <Route path="*" element={<Navigate to="/admin/login" replace />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </BrowserRouter>
   );
