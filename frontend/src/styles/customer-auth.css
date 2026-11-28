@@ -431,3 +431,90 @@
         padding: 28px 24px;
     }
 }
+
+/* --- TAMBAHAN STYLE UNTUK HALAMAN LOGIN (A3 · LOGIN) --- */
+.cauth-shell.login-layout {
+    grid-template-columns: 1.1fr 0.9fr;
+}
+
+.cauth-options-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 14px 0 20px;
+}
+
+.cauth-remember-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12.5px;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    user-select: none;
+}
+
+.cauth-forgot-link {
+    font-size: 12.5px;
+    font-weight: 500;
+    color: var(--color-royal-blue);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.cauth-forgot-link:hover {
+    color: var(--color-royal-blue-hover);
+    text-decoration: underline;
+}
+
+.cauth-divider {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin: 20px 0;
+    font-size: 12px;
+    color: var(--color-text-secondary);
+}
+
+.cauth-divider::before,
+.cauth-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background-color: var(--color-border-gray);
+}
+
+.cauth-google-btn {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    border: 1.5px solid var(--color-border-gray);
+    background-color: var(--color-white);
+    color: var(--color-dark-navy);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.cauth-google-btn:hover:not(:disabled) {
+    background-color: #FAFBFD;
+    border-color: #C5CEDB;
+}
+
+.cauth-google-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+@media (max-width: 920px) {
+    .cauth-shell.login-layout {
+        grid-template-columns: 1fr;
+    }
+}
