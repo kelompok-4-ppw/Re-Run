@@ -8,6 +8,7 @@ import AdminLayout from './components/AdminLayout';
 import Dashboard from './pages/admin/Dashboard';
 import Products from './pages/admin/Products';
 import AddProduct from './pages/admin/AddProduct';
+import EditProduct from './pages/admin/EditProduct';
 
 function AdminSubpagePlaceholder({ title }) {
   return (
@@ -36,7 +37,7 @@ export default function App() {
           <Route index element={<Dashboard />} />
           <Route path="products" element={<Products />} />
           <Route path="products/create" element={<AddProduct />} />
-          <Route path="products/edit/:id" element={<AdminSubpagePlaceholder title="Edit Product" />} />
+          <Route path="products/edit/:id" element={<EditProduct />} />
           <Route path="orders" element={<AdminSubpagePlaceholder title="Orders" />} />
           <Route path="inventory" element={<AdminSubpagePlaceholder title="Inventory" />} />
         </Route>

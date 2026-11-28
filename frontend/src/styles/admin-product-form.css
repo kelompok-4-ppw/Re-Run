@@ -511,3 +511,91 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Galeri Gambar pada Halaman Edit Product */
+.edit-main-image-box {
+    position: relative;
+    width: 100%;
+    height: 276px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, #E8EEF7 0%, #CBD8EC 100%);
+    color: #8BA4C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.edit-main-image-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-remove-img-btn {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 12px;
+    border-radius: 999px;
+    border: none;
+    background-color: var(--color-white);
+    color: var(--color-danger);
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(15, 34, 58, 0.12);
+    cursor: pointer;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.edit-remove-img-btn:hover {
+    background-color: var(--color-danger-tint);
+}
+
+.edit-thumb-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.edit-thumb-btn {
+    height: 76px;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-color: #E7EBF2;
+    color: #9AA9BE;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    overflow: hidden;
+    padding: 0;
+    transition: all 0.15s ease;
+}
+
+.edit-thumb-btn img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.edit-thumb-btn:hover {
+    border-color: rgba(35, 86, 168, 0.35);
+}
+
+.edit-thumb-btn.active {
+    background-color: #DCE7F7;
+    color: #7D98BD;
+    border-color: rgba(35, 86, 168, 0.25);
+}
+
+.edit-thumb-btn.empty {
+    background-color: #F8FAFC;
+    border: 1.5px dashed var(--color-border-gray);
+    color: var(--color-text-secondary);
+}

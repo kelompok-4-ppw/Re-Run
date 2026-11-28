@@ -58,6 +58,14 @@ export default function Products() {
   const filterBarRef = useRef(null);
 
   useEffect(() => {
+    const overrides = JSON.parse(localStorage.getItem('rerun_admin_product_overrides') || '{}');
+    const customProducts = JSON.parse(localStorage.getItem('rerun_admin_custom_products') || '[]');
+
+    const mergedSeed = INITIAL_PRODUCTS.map((item) =>
+      overrides[String(item.id)] ? { ...item, ...overrides[String(item.id)] } : item
+    );
+    setProducts([...customProducts, ...mergedSeed]);
+
     const token = localStorage.getItem('rerun_admin_token');
     fetch(`${API_BASE_URL}/admin/products`, {
       headers: {
@@ -72,7 +80,7 @@ export default function Products() {
         }
       })
       .catch(() => {
-        // Tetap gunakan data mockup saat backend Laravel belum aktif
+        // Tetap gunakan data lokal saat backend Laravel belum aktif
       });
   }, []);
 
