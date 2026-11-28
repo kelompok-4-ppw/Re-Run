@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LandingGuest from './pages/customer/LandingGuest';
+import CustomerRegister from './pages/customer/CustomerRegister';
 import AdminLogin from './pages/admin/AdminLogin';
 import ForgotPassword from './pages/admin/ForgotPassword';
 import CheckEmail from './pages/admin/CheckEmail';
@@ -32,7 +33,7 @@ export default function App() {
         {/* Halaman Customer (Guest & Storefront) */}
         <Route path="/" element={<LandingGuest />} />
         <Route path="/login" element={<CustomerAuthPlaceholder title="Customer Login" />} />
-        <Route path="/register" element={<CustomerAuthPlaceholder title="Customer Register" />} />
+        <Route path="/register" element={<CustomerRegister />} />
 
         {/* Halaman Autentikasi Admin */}
         <Route path="/admin/login" element={<AdminLogin />} />
