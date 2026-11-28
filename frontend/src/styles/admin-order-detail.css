@@ -1,0 +1,472 @@
+/* Breadcrumb & Header Bar */
+.odet-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.odet-breadcrumb a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.odet-breadcrumb a:hover {
+    color: var(--color-primary-navy);
+    text-decoration: underline;
+}
+
+.odet-breadcrumb-sep {
+    color: var(--color-text-secondary);
+    display: inline-flex;
+    align-items: center;
+}
+
+.odet-breadcrumb-current {
+    color: var(--color-primary-navy);
+    font-weight: 500;
+}
+
+.odet-header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+    flex-wrap: wrap;
+}
+
+.odet-title-group {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.odet-title {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-primary-navy);
+    line-height: 1.25;
+}
+
+.odet-back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 38px;
+    padding: 0 16px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-dark-navy);
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.odet-back-btn:hover {
+    background-color: #F4F6F9;
+    border-color: #C5CEDB;
+}
+
+/* Alert Sukses Update Status */
+.odet-toast {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background-color: var(--color-success-tint);
+    color: var(--color-success);
+    border: 1px solid rgba(21, 128, 61, 0.2);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.odet-toast-close {
+    background: none;
+    border: none;
+    color: currentColor;
+    font-size: 16px;
+    cursor: pointer;
+    line-height: 1;
+}
+
+/* Grid 2 Kolom Utama */
+.odet-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.85fr) minmax(300px, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.odet-col {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+/* Card Umum */
+.odet-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.odet-card-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-primary-navy);
+    margin-bottom: 18px;
+}
+
+/* Grid Metadata (Order Info, Customer Info, Payment Info) */
+.odet-meta-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.odet-meta-grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.odet-meta-block {
+    margin-top: 18px;
+}
+
+.odet-meta-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    margin-bottom: 6px;
+}
+
+.odet-meta-value {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-dark-navy);
+    line-height: 1.45;
+    word-break: break-word;
+}
+
+.status-paid {
+    background-color: var(--color-success-tint);
+    color: var(--color-success);
+}
+
+/* Tabel Ordered Products */
+.odet-items-table-wrap {
+    margin: 0 -24px;
+    overflow-x: auto;
+}
+
+.odet-items-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.odet-items-table thead tr {
+    background-color: #F4F6F9;
+    border-top: 1px solid var(--color-border-gray);
+    border-bottom: 1px solid var(--color-border-gray);
+}
+
+.odet-items-table th {
+    text-align: left;
+    padding: 12px 16px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+
+.odet-items-table th:first-child {
+    padding-left: 24px;
+}
+
+.odet-items-table th:last-child {
+    padding-right: 24px;
+    text-align: right;
+}
+
+.odet-items-table td {
+    padding: 16px;
+    border-bottom: 1px solid var(--color-border-gray);
+    color: var(--color-text-dark);
+    vertical-align: middle;
+}
+
+.odet-items-table td:first-child {
+    padding-left: 24px;
+}
+
+.odet-items-table td:last-child {
+    padding-right: 24px;
+    text-align: right;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.odet-prod-cell {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 200px;
+}
+
+.odet-prod-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background-color: #DCE7F7;
+    color: #8BA4C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.odet-prod-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-dark-navy);
+}
+
+.odet-prod-sku {
+    font-size: 11.5px;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+}
+
+/* Ringkasan Total Items & Total Price */
+.odet-summary-box {
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.odet-summary-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13.5px;
+    color: var(--color-text-secondary);
+}
+
+.odet-summary-row strong {
+    color: var(--color-dark-navy);
+    font-weight: 600;
+}
+
+.odet-summary-total {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-primary-navy);
+}
+
+/* Status Management Card (Kolom Kanan) */
+.odet-status-current-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    font-size: 13.5px;
+    color: var(--color-text-secondary);
+}
+
+.odet-update-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+}
+
+.odet-status-dropdown {
+    position: relative;
+    margin-bottom: 16px;
+}
+
+.odet-status-trigger {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 8px;
+    border: 1.5px solid var(--color-border-gray);
+    background-color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.odet-status-trigger.open {
+    border-color: var(--color-royal-blue);
+    box-shadow: 0 0 0 3px var(--color-muted-blue);
+}
+
+.odet-status-menu {
+    margin-top: 8px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    border-radius: 10px;
+    padding: 6px;
+    box-shadow: 0 8px 20px rgba(15, 34, 58, 0.08);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.odet-status-option {
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 7px;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.odet-status-option:hover {
+    background-color: #F4F6F9;
+}
+
+.odet-status-option.selected {
+    background-color: #EDF3FC;
+}
+
+.odet-update-btn {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--color-royal-blue);
+    color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.odet-update-btn:hover:not(:disabled) {
+    background-color: var(--color-royal-blue-hover);
+}
+
+.odet-update-btn:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+/* Order Timeline Stepper */
+.odet-timeline {
+    display: flex;
+    flex-direction: column;
+}
+
+.odet-timeline-step {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding-bottom: 22px;
+}
+
+.odet-timeline-step:last-child {
+    padding-bottom: 0;
+}
+
+.odet-timeline-step:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 11px;
+    top: 26px;
+    bottom: 2px;
+    width: 1.5px;
+    background-color: var(--color-border-gray);
+}
+
+.odet-timeline-step.done:not(:last-child)::before {
+    background-color: #A7F3D0;
+}
+
+.odet-step-circle {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 1px;
+}
+
+.odet-step-circle.done {
+    background-color: var(--color-success);
+    color: var(--color-white);
+}
+
+.odet-step-circle.pending {
+    background-color: var(--color-white);
+    border: 1.5px solid #CBD5E1;
+}
+
+.odet-step-circle.cancelled {
+    background-color: var(--color-danger);
+    color: var(--color-white);
+}
+
+.odet-step-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-dark-navy);
+    line-height: 1.35;
+}
+
+.odet-step-title.muted {
+    color: var(--color-text-secondary);
+    font-weight: 500;
+}
+
+.odet-step-sub {
+    font-size: 12px;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+}
+
+@media (max-width: 1060px) {
+    .odet-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 680px) {
+
+    .odet-meta-grid-3,
+    .odet-meta-grid-4 {
+        grid-template-columns: 1fr 1fr;
+    }
+}

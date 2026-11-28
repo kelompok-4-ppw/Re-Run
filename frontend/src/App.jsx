@@ -9,6 +9,8 @@ import Dashboard from './pages/admin/Dashboard';
 import Products from './pages/admin/Products';
 import AddProduct from './pages/admin/AddProduct';
 import EditProduct from './pages/admin/EditProduct';
+import Orders from './pages/admin/Orders';
+import OrderDetail from './pages/admin/OrderDetail';
 
 function AdminSubpagePlaceholder({ title }) {
   return (
@@ -38,7 +40,8 @@ export default function App() {
           <Route path="products" element={<Products />} />
           <Route path="products/create" element={<AddProduct />} />
           <Route path="products/edit/:id" element={<EditProduct />} />
-          <Route path="orders" element={<AdminSubpagePlaceholder title="Orders" />} />
+          <Route path="orders" element={<Orders />} />
+          <Route path="orders/:orderId" element={<OrderDetail />} />
           <Route path="inventory" element={<AdminSubpagePlaceholder title="Inventory" />} />
         </Route>
 
