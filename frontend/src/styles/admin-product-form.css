@@ -1,0 +1,513 @@
+/* Breadcrumb & Judul Halaman */
+.add-prod-breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    margin-bottom: 6px;
+}
+
+.add-prod-breadcrumb a {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    transition: color 0.15s ease;
+}
+
+.add-prod-breadcrumb a:hover {
+    color: var(--color-primary-navy);
+    text-decoration: underline;
+}
+
+.add-prod-breadcrumb-sep {
+    color: var(--color-text-secondary);
+    display: inline-flex;
+    align-items: center;
+}
+
+.add-prod-breadcrumb-current {
+    color: var(--color-royal-blue);
+    font-weight: 500;
+}
+
+.add-prod-heading {
+    font-family: var(--font-heading);
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--color-primary-navy);
+    margin-bottom: 22px;
+}
+
+/* Alert Validasi Form */
+.add-prod-alert {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: var(--color-danger-tint);
+    color: var(--color-danger);
+    padding: 12px 16px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+/* Grid 2 Kolom Utama */
+.add-prod-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.75fr) minmax(300px, 1fr);
+    gap: 24px;
+    align-items: start;
+}
+
+.add-prod-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Card Form */
+.form-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    border-radius: 12px;
+    padding: 24px;
+}
+
+.form-card-title {
+    font-family: var(--font-heading);
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-primary-navy);
+    margin-bottom: 18px;
+}
+
+.form-card-title.no-margin {
+    margin-bottom: 4px;
+}
+
+.form-card-subtitle {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-bottom: 18px;
+}
+
+/* Input, Textarea & Select */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    margin-bottom: 8px;
+}
+
+.form-control {
+    width: 100%;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid var(--color-border-gray);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    color: var(--color-text-dark);
+    background-color: var(--color-white);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-control::placeholder,
+.form-textarea::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.form-control:focus,
+.form-textarea:focus {
+    border-color: var(--color-royal-blue);
+    box-shadow: 0 0 0 3px var(--color-muted-blue);
+}
+
+.form-textarea {
+    width: 100%;
+    min-height: 112px;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border-gray);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    color: var(--color-text-dark);
+    background-color: var(--color-white);
+    resize: vertical;
+    outline: none;
+    line-height: 1.5;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.form-row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+/* Custom Select Arrow */
+.form-select-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-select {
+    appearance: none;
+    padding-right: 38px;
+    cursor: pointer;
+}
+
+.form-select.placeholder-active {
+    color: var(--color-text-secondary);
+}
+
+.form-select-arrow {
+    position: absolute;
+    right: 14px;
+    color: var(--color-text-secondary);
+    pointer-events: none;
+    display: flex;
+}
+
+/* Input Harga dengan Prefix Rp */
+.price-input-wrap {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.price-prefix {
+    position: absolute;
+    left: 14px;
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    pointer-events: none;
+}
+
+.price-input {
+    padding-left: 38px;
+}
+
+/* Tabel Product Variant */
+.variant-table-box {
+    border: 1px solid var(--color-border-gray);
+    border-radius: 10px;
+    overflow-x: auto;
+}
+
+.variant-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.variant-table thead tr {
+    background-color: #F4F6F9;
+    border-bottom: 1px solid var(--color-border-gray);
+}
+
+.variant-table th {
+    text-align: left;
+    padding: 12px 18px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+}
+
+.variant-table td {
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--color-border-gray);
+    vertical-align: middle;
+}
+
+.variant-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.size-badge {
+    width: 34px;
+    height: 32px;
+    border-radius: 7px;
+    background-color: var(--color-dark-navy);
+    color: var(--color-white);
+    font-size: 12px;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Kontrol Stepper Stock (- 0 +) */
+.stock-stepper {
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    max-width: 240px;
+    height: 38px;
+    border: 1px solid var(--color-border-gray);
+    border-radius: 8px;
+    padding: 0 8px;
+    background-color: var(--color-white);
+    transition: border-color 0.15s ease;
+}
+
+.stock-stepper:focus-within {
+    border-color: var(--color-royal-blue);
+}
+
+.stock-stepper-controls {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.stepper-btn {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: none;
+    color: var(--color-dark-navy);
+    font-size: 16px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.stepper-btn:hover:not(:disabled) {
+    background-color: #F4F6F9;
+}
+
+.stepper-btn:disabled {
+    opacity: 0.35;
+    cursor: not-allowed;
+}
+
+.stepper-value-input {
+    width: 36px;
+    text-align: center;
+    border: none;
+    background: transparent;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    outline: none;
+}
+
+/* Area Upload Gambar Produk */
+.upload-dropzone {
+    border: 1.5px dashed var(--color-royal-blue);
+    background-color: #F3F7FD;
+    border-radius: 12px;
+    padding: 36px 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.upload-dropzone:hover,
+.upload-dropzone.dragging {
+    background-color: #E7F0FC;
+    border-color: var(--color-royal-blue-hover);
+}
+
+.upload-icon-circle {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-color: var(--color-white);
+    color: var(--color-royal-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    box-shadow: 0 2px 6px rgba(35, 86, 168, 0.08);
+}
+
+.upload-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--color-primary-navy);
+    margin-bottom: 6px;
+}
+
+.upload-hint {
+    font-size: 11.5px;
+    color: var(--color-text-secondary);
+    line-height: 1.45;
+}
+
+/* Kartu File Gambar yang Diunggah */
+.uploaded-file-card {
+    margin-top: 14px;
+    border: 1px solid var(--color-border-gray);
+    border-radius: 10px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.uploaded-file-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+}
+
+.uploaded-file-thumb {
+    width: 42px;
+    height: 42px;
+    border-radius: 8px;
+    background-color: #DCE7F7;
+    color: #8BA4C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.uploaded-file-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.uploaded-file-meta {
+    min-width: 0;
+}
+
+.uploaded-file-name {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-dark-navy);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.uploaded-file-sub {
+    font-size: 11.5px;
+    color: var(--color-text-secondary);
+    margin-top: 2px;
+}
+
+.uploaded-preview-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--color-royal-blue);
+    cursor: pointer;
+}
+
+.uploaded-preview-btn:hover {
+    text-decoration: underline;
+}
+
+.uploaded-remove-btn {
+    background: none;
+    border: none;
+    color: var(--color-danger);
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background-color 0.15s ease;
+}
+
+.uploaded-remove-btn:hover {
+    background-color: var(--color-danger-tint);
+}
+
+/* Card Tombol Save & Cancel */
+.form-actions-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.btn-save-product {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    background-color: var(--color-royal-blue);
+    color: var(--color-white);
+    border: none;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-save-product:hover:not(:disabled) {
+    background-color: var(--color-royal-blue-hover);
+}
+
+.btn-save-product:disabled {
+    opacity: 0.65;
+    cursor: not-allowed;
+}
+
+.btn-cancel-product {
+    width: 100%;
+    height: 44px;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    color: var(--color-primary-navy);
+    border: 1.5px solid var(--color-primary-navy);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.btn-cancel-product:hover {
+    background-color: #F4F6F9;
+}
+
+@media (max-width: 1024px) {
+    .add-prod-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 640px) {
+    .form-row-2 {
+        grid-template-columns: 1fr;
+    }
+}

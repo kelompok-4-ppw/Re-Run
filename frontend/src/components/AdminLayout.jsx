@@ -27,6 +27,10 @@ export default function AdminLayout() {
     return 'Dashboard';
   };
 
+  const hideTopbarSearch =
+    location.pathname.startsWith('/admin/products/create') ||
+    location.pathname.startsWith('/admin/products/edit');
+
   const handleLogout = () => {
     localStorage.removeItem('rerun_admin_token');
     navigate('/admin/login');
@@ -34,13 +38,11 @@ export default function AdminLayout() {
 
   return (
     <div className="admin-shell">
-      {/* Overlay saat menu mobile terbuka */}
       <div
         className={`admin-sidebar-backdrop ${sidebarOpen ? 'open' : ''}`}
         onClick={() => setSidebarOpen(false)}
       />
 
-      {/* Sidebar Dark Navy */}
       <aside className={`admin-sidebar ${sidebarOpen ? 'open' : ''}`}>
         <div className="admin-sidebar-top">
           <div className="admin-sidebar-logo">
@@ -114,7 +116,6 @@ export default function AdminLayout() {
         </div>
       </aside>
 
-      {/* Main Column */}
       <div className="admin-main-wrap">
         <header className="admin-topbar">
           <div className="admin-topbar-left">
@@ -134,21 +135,23 @@ export default function AdminLayout() {
           </div>
 
           <div className="admin-topbar-right">
-            <div className="admin-search-box">
-              <span className="admin-search-icon" aria-hidden="true">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <circle cx="11" cy="11" r="8" />
-                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-              </span>
-              <input
-                type="text"
-                className="admin-search-input"
-                placeholder="Search..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-            </div>
+            {!hideTopbarSearch && (
+              <div className="admin-search-box">
+                <span className="admin-search-icon" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <circle cx="11" cy="11" r="8" />
+                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                  </svg>
+                </span>
+                <input
+                  type="text"
+                  className="admin-search-input"
+                  placeholder="Search..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                />
+              </div>
+            )}
 
             <button type="button" className="admin-notif-btn" aria-label="Notifications">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9">
