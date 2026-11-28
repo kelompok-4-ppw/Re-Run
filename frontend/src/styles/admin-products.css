@@ -1,0 +1,470 @@
+/* Header Halaman Product Management */
+.prod-page-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 22px;
+}
+
+.prod-header-title {
+    font-family: var(--font-heading);
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--color-primary-navy);
+    line-height: 1.25;
+}
+
+.prod-header-sub {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    margin-top: 4px;
+}
+
+.prod-add-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 42px;
+    padding: 0 18px;
+    background-color: var(--color-royal-blue);
+    color: var(--color-white);
+    border: none;
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color 0.15s ease;
+}
+
+.prod-add-btn:hover {
+    background-color: var(--color-royal-blue-hover);
+}
+
+/* Container Card Utama */
+.prod-card {
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    border-radius: 12px;
+    overflow: visible;
+}
+
+/* Toolbar Pencarian & Filter */
+.prod-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 20px 24px;
+    flex-wrap: wrap;
+}
+
+.prod-search-wrap {
+    position: relative;
+    flex: 1;
+    min-width: 240px;
+    max-width: 520px;
+    display: flex;
+    align-items: center;
+}
+
+.prod-search-icon {
+    position: absolute;
+    left: 16px;
+    color: var(--color-text-secondary);
+    display: flex;
+    pointer-events: none;
+}
+
+.prod-search-input {
+    width: 100%;
+    height: 42px;
+    padding: 0 16px 0 42px;
+    background-color: #F4F6F9;
+    border: 1px solid var(--color-border-gray);
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    color: var(--color-text-dark);
+    outline: none;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.prod-search-input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.prod-search-input:focus {
+    background-color: var(--color-white);
+    border-color: var(--color-royal-blue);
+}
+
+.prod-filters-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* Pill Dropdown Filter */
+.prod-dropdown {
+    position: relative;
+}
+
+.prod-filter-pill {
+    height: 40px;
+    padding: 0 15px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    border-radius: 999px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-text-secondary);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.prod-filter-pill:hover {
+    border-color: #C5CEDB;
+    background-color: #FAFBFD;
+}
+
+.prod-filter-pill strong {
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+.prod-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 6px);
+    right: 0;
+    min-width: 176px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    border-radius: 10px;
+    box-shadow: 0 10px 24px rgba(15, 34, 58, 0.1);
+    padding: 6px;
+    z-index: 30;
+}
+
+.prod-dropdown-option {
+    width: 100%;
+    text-align: left;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    border-radius: 6px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--color-text-dark);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.prod-dropdown-option:hover {
+    background-color: #F4F6F9;
+}
+
+.prod-dropdown-option.selected {
+    background-color: var(--color-muted-blue);
+    color: var(--color-royal-blue);
+    font-weight: 600;
+}
+
+/* Tabel Produk */
+.prod-table-wrap {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.prod-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+}
+
+.prod-table thead tr {
+    background-color: #F4F6F9;
+    border-top: 1px solid var(--color-border-gray);
+    border-bottom: 1px solid var(--color-border-gray);
+}
+
+.prod-table th {
+    text-align: left;
+    padding: 13px 16px;
+    font-size: 12.5px;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    white-space: nowrap;
+}
+
+.prod-table th:first-child {
+    padding-left: 24px;
+}
+
+.prod-table th:last-child {
+    padding-right: 24px;
+}
+
+.prod-table td {
+    padding: 15px 16px;
+    border-bottom: 1px solid var(--color-border-gray);
+    color: var(--color-text-dark);
+    vertical-align: middle;
+}
+
+.prod-table td:first-child {
+    padding-left: 24px;
+}
+
+.prod-table td:last-child {
+    padding-right: 24px;
+}
+
+.prod-table tbody tr:hover {
+    background-color: #FAFBFD;
+}
+
+/* Kolom Info Produk + Thumbnail Kaos */
+.prod-info-cell {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 220px;
+}
+
+.prod-thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 8px;
+    background-color: #DCE7F7;
+    color: #8BA4C7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.prod-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.prod-name {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--color-dark-navy);
+    line-height: 1.3;
+}
+
+.prod-sku {
+    font-size: 11.5px;
+    color: var(--color-text-secondary);
+    margin-top: 3px;
+}
+
+.prod-price {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.prod-stock {
+    font-weight: 500;
+}
+
+/* Status Pill In Stock */
+.status-in-stock {
+    background-color: var(--color-success-tint);
+    color: var(--color-success);
+}
+
+/* Tombol Actions (View, Edit, Delete) */
+.prod-actions-group {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.prod-action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 7px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    color: var(--color-text-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.prod-action-btn:hover {
+    background-color: #F4F6F9;
+    border-color: #C5CEDB;
+}
+
+.prod-action-btn.delete {
+    color: var(--color-danger);
+}
+
+.prod-action-btn.delete:hover {
+    background-color: var(--color-danger-tint);
+    border-color: #FECACA;
+}
+
+/* Footer Pagination */
+.prod-pagination-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 18px 24px;
+    flex-wrap: wrap;
+}
+
+.prod-showing-text {
+    font-size: 13px;
+    color: var(--color-text-secondary);
+}
+
+.prod-page-controls {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.prod-page-btn {
+    min-width: 34px;
+    height: 34px;
+    padding: 0 8px;
+    border-radius: 8px;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border-gray);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.prod-page-btn:hover:not(:disabled):not(.active):not(.dots) {
+    background-color: #F4F6F9;
+    border-color: #C5CEDB;
+}
+
+.prod-page-btn.active {
+    background-color: var(--color-dark-navy);
+    border-color: var(--color-dark-navy);
+    color: var(--color-white);
+    font-weight: 600;
+}
+
+.prod-page-btn.dots {
+    cursor: default;
+    color: var(--color-text-secondary);
+}
+
+.prod-page-btn:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* Modal Preview & Konfirmasi Hapus */
+.prod-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(15, 34, 58, 0.48);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 200;
+}
+
+.prod-modal-card {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--color-white);
+    border-radius: 14px;
+    padding: 24px;
+    box-shadow: 0 20px 40px rgba(15, 34, 58, 0.18);
+}
+
+.prod-modal-title {
+    font-family: var(--font-heading);
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--color-dark-navy);
+    margin-bottom: 8px;
+}
+
+.prod-modal-desc {
+    font-size: 13.5px;
+    color: var(--color-text-secondary);
+    line-height: 1.55;
+    margin-bottom: 20px;
+}
+
+.prod-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.prod-modal-cancel {
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 8px;
+    border: 1px solid var(--color-border-gray);
+    background-color: var(--color-white);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-text-dark);
+    cursor: pointer;
+}
+
+.prod-modal-danger {
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--color-danger);
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--color-white);
+    cursor: pointer;
+}
+
+@media (max-width: 640px) {
+    .prod-page-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .prod-toolbar {
+        padding: 16px;
+    }
+
+    .prod-pagination-bar {
+        padding: 16px;
+    }
+}

@@ -6,6 +6,7 @@ import ResetPassword from './pages/admin/ResetPassword';
 import PasswordUpdated from './pages/admin/PasswordUpdated';
 import AdminLayout from './components/AdminLayout';
 import Dashboard from './pages/admin/Dashboard';
+import Products from './pages/admin/Products';
 
 function AdminSubpagePlaceholder({ title }) {
   return (
@@ -32,8 +33,9 @@ export default function App() {
         {/* Panel Admin dengan Sidebar & Topbar */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Dashboard />} />
-          <Route path="products" element={<AdminSubpagePlaceholder title="Products" />} />
+          <Route path="products" element={<Products />} />
           <Route path="products/create" element={<AdminSubpagePlaceholder title="Add Product" />} />
+          <Route path="products/edit/:id" element={<AdminSubpagePlaceholder title="Edit Product" />} />
           <Route path="orders" element={<AdminSubpagePlaceholder title="Orders" />} />
           <Route path="inventory" element={<AdminSubpagePlaceholder title="Inventory" />} />
         </Route>
