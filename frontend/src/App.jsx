@@ -11,17 +11,7 @@ import AddProduct from './pages/admin/AddProduct';
 import EditProduct from './pages/admin/EditProduct';
 import Orders from './pages/admin/Orders';
 import OrderDetail from './pages/admin/OrderDetail';
-
-function AdminSubpagePlaceholder({ title }) {
-  return (
-    <div className="dash-card">
-      <h2 className="dash-section-title">{title}</h2>
-      <p style={{ color: 'var(--color-text-secondary)', fontSize: '14px', marginTop: '8px' }}>
-        Halaman {title} siap dilengkapi pada tahap berikutnya.
-      </p>
-    </div>
-  );
-}
+import Inventory from './pages/admin/Inventory';
 
 export default function App() {
   return (
@@ -42,7 +32,7 @@ export default function App() {
           <Route path="products/edit/:id" element={<EditProduct />} />
           <Route path="orders" element={<Orders />} />
           <Route path="orders/:orderId" element={<OrderDetail />} />
-          <Route path="inventory" element={<AdminSubpagePlaceholder title="Inventory" />} />
+          <Route path="inventory" element={<Inventory />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/admin/login" replace />} />
