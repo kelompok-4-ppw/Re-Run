@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useOutletContext } from 'react-router-dom';
+import DeleteProductModal from '../../components/DeleteProductModal';
 import '../../styles/admin-products.css';
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000/api';
@@ -54,17 +55,20 @@ export default function Products() {
 
   const [previewProduct, setPreviewProduct] = useState(null);
   const [deleteTarget, setDeleteTarget] = useState(null);
+  const [isDeleting, setIsDeleting] = useState(false);
 
   const filterBarRef = useRef(null);
 
   useEffect(() => {
     const overrides = JSON.parse(localStorage.getItem('rerun_admin_product_overrides') || '{}');
     const customProducts = JSON.parse(localStorage.getItem('rerun_admin_custom_products') || '[]');
+    const deletedIds = JSON.parse(localStorage.getItem('rerun_admin_deleted_product_ids') || '[]').map(String);
 
-    const mergedSeed = INITIAL_PRODUCTS.map((item) =>
+    const mergedSeed = INITIAL_PRODUCTS.filter((item) => !deletedIds.includes(String(item.id))).map((item) =>
       overrides[String(item.id)] ? { ...item, ...overrides[String(item.id)] } : item
     );
-    setProducts([...customProducts, ...mergedSeed]);
+    const activeCustom = customProducts.filter((item) => !deletedIds.includes(String(item.id)));
+    setProducts([...activeCustom, ...mergedSeed]);
 
     const token = localStorage.getItem('rerun_admin_token');
     fetch(`${API_BASE_URL}/admin/products`, {
@@ -128,8 +132,9 @@ export default function Products() {
   const totalPages = isUnfilteredDefault ? 31 : Math.max(1, Math.ceil(filteredProducts.length / 8));
 
   const handleConfirmDelete = async () => {
-    if (!deleteTarget) return;
+    if (!deleteTarget || isDeleting) return;
     const targetId = deleteTarget.id;
+    setIsDeleting(true);
 
     try {
       const token = localStorage.getItem('rerun_admin_token');
@@ -141,9 +146,21 @@ export default function Products() {
         },
       });
     } catch {
-      // Lanjutkan penghapusan pada state lokal
+      // Lanjutkan penghapusan pada state & storage lokal
     } finally {
-      setProducts((prev) => prev.filter((item) => item.id !== targetId));
+      const deletedIds = JSON.parse(localStorage.getItem('rerun_admin_deleted_product_ids') || '[]');
+      if (!deletedIds.map(String).includes(String(targetId))) {
+        localStorage.setItem('rerun_admin_deleted_product_ids', JSON.stringify([...deletedIds, targetId]));
+      }
+
+      const customProducts = JSON.parse(localStorage.getItem('rerun_admin_custom_products') || '[]');
+      localStorage.setItem(
+        'rerun_admin_custom_products',
+        JSON.stringify(customProducts.filter((item) => String(item.id) !== String(targetId)))
+      );
+
+      setProducts((prev) => prev.filter((item) => String(item.id) !== String(targetId)));
+      setIsDeleting(false);
       setDeleteTarget(null);
     }
   };
@@ -505,25 +522,12 @@ export default function Products() {
       )}
 
       {/* Modal Konfirmasi Hapus Produk */}
-      {deleteTarget && (
-        <div className="prod-modal-backdrop" onClick={() => setDeleteTarget(null)}>
-          <div className="prod-modal-card" onClick={(e) => e.stopPropagation()}>
-            <h3 className="prod-modal-title">Delete Product?</h3>
-            <p className="prod-modal-desc">
-              Are you sure you want to remove <strong>{deleteTarget.name}</strong> ({deleteTarget.sku}) from your
-              inventory? This action cannot be undone.
-            </p>
-            <div className="prod-modal-actions">
-              <button type="button" className="prod-modal-cancel" onClick={() => setDeleteTarget(null)}>
-                Cancel
-              </button>
-              <button type="button" className="prod-modal-danger" onClick={handleConfirmDelete}>
-                Delete Product
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <DeleteProductModal
+        product={deleteTarget}
+        isDeleting={isDeleting}
+        onCancel={() => setDeleteTarget(null)}
+        onConfirm={handleConfirmDelete}
+      />
     </div>
   );
 }
