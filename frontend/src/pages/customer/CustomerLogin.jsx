@@ -293,7 +293,7 @@ export default function CustomerLogin() {
                 <span>Remember me</span>
               </label>
 
-              <Link to="/admin/forgot-password" className="cauth-forgot-link">
+              <Link to="/forgot-password" className="cauth-forgot-link">
                 Forgot password?
               </Link>
             </div>

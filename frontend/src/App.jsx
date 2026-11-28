@@ -2,6 +2,10 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LandingGuest from './pages/customer/LandingGuest';
 import CustomerRegister from './pages/customer/CustomerRegister';
 import CustomerLogin from './pages/customer/CustomerLogin';
+import CustomerForgotPassword from './pages/customer/CustomerForgotPassword';
+import CustomerCheckEmail from './pages/customer/CustomerCheckEmail';
+import CustomerResetPassword from './pages/customer/CustomerResetPassword';
+import CustomerPasswordUpdated from './pages/customer/CustomerPasswordUpdated';
 import AdminLogin from './pages/admin/AdminLogin';
 import ForgotPassword from './pages/admin/ForgotPassword';
 import CheckEmail from './pages/admin/CheckEmail';
@@ -35,6 +39,10 @@ export default function App() {
         <Route path="/" element={<LandingGuest />} />
         <Route path="/login" element={<CustomerLogin />} />
         <Route path="/register" element={<CustomerRegister />} />
+        <Route path="/forgot-password" element={<CustomerForgotPassword />} />
+        <Route path="/check-email" element={<CustomerCheckEmail />} />
+        <Route path="/reset-password" element={<CustomerResetPassword />} />
+        <Route path="/password-updated" element={<CustomerPasswordUpdated />} />
         <Route path="/home" element={<CustomerPagePlaceholder title="Customer Home (Logged In)" />} />
 
         {/* Halaman Autentikasi Admin */}

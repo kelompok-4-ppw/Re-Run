@@ -518,3 +518,133 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* --- TAMBAHAN STYLE UNTUK HALAMAN FORGOT PASSWORD (A4 · FORGOT PASSWORD) --- */
+.cauth-icon-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #EDF3FC;
+    color: var(--color-royal-blue);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* --- TAMBAHAN STYLE UNTUK HALAMAN CHECK YOUR EMAIL (A5 · CHECK EMAIL) --- */
+.cauth-icon-badge.success {
+    background-color: var(--color-success-tint);
+    color: var(--color-success);
+}
+
+.cauth-secondary-outline-btn {
+    width: 100%;
+    height: 44px;
+    margin-top: 12px;
+    border-radius: 8px;
+    border: 1.5px solid var(--color-primary-navy);
+    background-color: var(--color-white);
+    color: var(--color-primary-navy);
+    font-family: var(--font-body);
+    font-size: 13.5px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.cauth-secondary-outline-btn:hover {
+    background-color: #F4F6F9;
+}
+
+.cauth-resend-box {
+    margin-top: 22px;
+    text-align: center;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+}
+
+.cauth-resend-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    font-family: var(--font-body);
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--color-royal-blue);
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.cauth-resend-btn:hover:not(:disabled) {
+    color: var(--color-royal-blue-hover);
+    text-decoration: underline;
+}
+
+.cauth-resend-btn:disabled {
+    color: var(--color-royal-blue);
+    opacity: 0.75;
+    cursor: not-allowed;
+}
+
+/* --- TAMBAHAN STYLE UNTUK HALAMAN RESET PASSWORD (A6 · RESET PASSWORD) --- */
+.cauth-heading-compact {
+    max-width: 280px;
+}
+
+.cauth-checklist {
+    list-style: none;
+    padding: 0;
+    margin: 14px 0 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.cauth-check-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    line-height: 1.4;
+    transition: color 0.15s ease;
+}
+
+.cauth-check-item.met {
+    color: var(--color-dark-navy);
+    font-weight: 500;
+}
+
+.cauth-check-item.unmet {
+    color: var(--color-text-secondary);
+}
+
+.cauth-check-icon {
+    width: 14px;
+    height: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.cauth-check-item.met .cauth-check-icon {
+    color: var(--color-dark-navy);
+}
+
+.cauth-check-item.unmet .cauth-check-icon {
+    color: var(--color-text-secondary);
+}
+
+/* --- TAMBAHAN STYLE UNTUK HALAMAN PASSWORD UPDATED (A7 · PASSWORD UPDATED) --- */
+.cauth-icon-badge.solid-success {
+    width: 52px;
+    height: 52px;
+    background-color: #1F7A53;
+    color: var(--color-white);
+}
